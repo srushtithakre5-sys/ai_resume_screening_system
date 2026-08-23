@@ -18,8 +18,7 @@ if uploaded_file is not None:
         st.warning("🟡 Average Resume")
     else:
         st.error("❌ Poor Resume")
-
-else:
+    else:
     st.warning("Please upload your resume.")
 # PDF TEXT EXTRACTION
     if uploaded_file.name.lower().endswith(".pdf"):
@@ -33,6 +32,5 @@ else:
 
         st.subheader("📄 Resume Text")
         st.write(resume_text)
-
-else:
+ else:
     st.warning("Please upload your resume.")
