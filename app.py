@@ -1,4 +1,4 @@
-from pypdf import PdfReader
+ "from pypdf import PdfReader; print('pypdf working')"
 from docx import Document
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from sentence_transformers import SentenceTransformer
