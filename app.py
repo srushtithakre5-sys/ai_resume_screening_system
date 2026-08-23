@@ -64,7 +64,5 @@ else:
                 st.write("✅", skill.title())
         else:
             st.warning("No skills detected.")
-
-else:
-
-    st.warning("Please upload your resume.")
+        else:
+           st.warning("Please upload your resume.")
