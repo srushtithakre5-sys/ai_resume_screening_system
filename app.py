@@ -21,4 +21,41 @@ if uploaded_file is not None:
 
 else:
     st.warning("Please upload your resume.")
+    # SKILLS DETECTION
+
+skills = [
+    "python",
+    "java",
+    "c",
+    "c++",
+    "html",
+    "css",
+    "javascript",
+    "sql",
+    "mysql",
+    "linux",
+    "windows",
+    "ccna",
+    "networking",
+    "flask",
+    "machine learning",
+    "excel"
+]
+
+found_skills = []
+
+for skill in skills:
+    if skill.lower() in text.lower():
+        found_skills.append(skill)
+
+st.subheader("🛠️ Skills Detected")
+
+if found_skills:
+
+    for skill in found_skills:
+        st.write("✅", skill.title())
+
+else:
+
+    st.warning("No skills detected.")
     
