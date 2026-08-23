@@ -1,1 +1,4 @@
 Flask
+streamlit
+pypdf
+python-docx
