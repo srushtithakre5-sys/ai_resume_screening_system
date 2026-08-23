@@ -21,56 +21,18 @@ if uploaded_file is not None:
 
 else:
     st.warning("Please upload your resume.")
-if uploaded_file.name.lower().endswith(".pdf"):
+# PDF TEXT EXTRACTION
+    if uploaded_file.name.lower().endswith(".pdf"):
 
         reader = PdfReader(uploaded_file)
 
-        text = ""
+        resume_text = ""
 
         for page in reader.pages:
-            page_text = page.extract_text()
+            resume_text += page.extract_text() or ""
 
-            if page_text:
-                text = text + page_text
-
-        st.subheader("Resume Text")
-        st.write(text)
-
-        skills = [
-            "python",
-            "java",
-            "html",
-            "css",
-            "javascript",
-            "sql",
-            "mysql",
-            "linux",
-            "windows",
-            "ccna",
-            "networking",
-            "flask",
-            "excel"
-        ]
-
-        found_skills = []
-
-        for skill in skills:
-
-            if skill in text.lower():
-                found_skills.append(skill)
-
-        st.subheader("Skills Detected")
-
-        if len(found_skills) > 0:
-
-            for skill in found_skills:
-                st.write("✅", skill.title())
-
-        else:
-            st.write("No skills detected.")
-
-    else:
-        st.info("DOCX text extraction will be added next.")
+        st.subheader("📄 Resume Text")
+        st.write(resume_text)
 
 else:
     st.warning("Please upload your resume.")
