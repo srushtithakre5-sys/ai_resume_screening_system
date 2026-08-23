@@ -18,16 +18,5 @@ if uploaded_file is not None:
         st.warning("🟡 Average Resume")
     else:
         st.error("❌ Poor Resume")
-# PDF TEXT EXTRACTION
-    if uploaded_file.name.lower().endswith(".pdf"):
-
-        reader = PdfReader(uploaded_file)
-
-        resume_text = ""
-
-        for page in reader.pages:
-            resume_text += page.extract_text() or ""
-        st.subheader("📄 Resume Text")
-        st.write(resume_text)
- else:
+        else:
     st.warning("Please upload your resume.")
