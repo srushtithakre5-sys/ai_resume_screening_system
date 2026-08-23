@@ -146,4 +146,5 @@ else:
 return min(score, 100), results, suggestions
 def get_status(score):
     if score >= 80: return "EXCELLENT"
-    elif score >= 65: return "
+    elif score >= 65: return "GOOD"
+    elif return"NEEDS IMPROVEMENT"
