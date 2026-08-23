@@ -27,7 +27,6 @@ if uploaded_file is not None:
 
         for page in reader.pages:
             resume_text += page.extract_text() or ""
-
         st.subheader("📄 Resume Text")
         st.write(resume_text)
  else:
