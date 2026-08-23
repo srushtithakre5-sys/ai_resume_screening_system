@@ -1,4 +1,2 @@
 Flask
-streamlit
-pypdf
-python-docx
+PyPDF2
