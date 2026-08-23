@@ -139,8 +139,11 @@ def analyse_resume(text):
     action_words = ["developed","created","designed","implemented","improved","managed","built","analysed","analyzed","led"]
     action_count = sum(1 for w in action_words if w in text_lower)
     results["Action Words"] = action_count
-    score += 5 if action_count >= 3 else suggestions.append("Use stronger action words such as Developed, Built, Implemented, Designed, or Improved.")
- return min(score, 100), results, suggestions
+    if action_count >= 3:
+    score += 5
+else:
+    suggestions.append("Use stronger action words such as Developed, Built, Implemented, Managed, etc.")
+return min(score, 100), results, suggestions
 def get_status(score):
     if score >= 80: return "EXCELLENT"
     elif score >= 65: return "
