@@ -21,8 +21,7 @@ if uploaded_file is not None:
 
 else:
     st.warning("Please upload your resume.")
-# PDF TEXT
-    if uploaded_file.name.endswith(".pdf"):
+if uploaded_file.name.endswith(".pdf"):
 
         reader = PdfReader(uploaded_file)
 
@@ -31,18 +30,15 @@ else:
         for page in reader.pages:
             text += page.extract_text() or ""
 
-        st.subheader("📄 Resume Text")
+        st.subheader("Resume Text")
         st.write(text)
-
-        # SKILLS
-        skills = [
+    skills = [
             "python",
             "java",
             "html",
             "css",
             "javascript",
             "sql",
-            "mysql",
             "linux",
             "windows",
             "ccna",
@@ -54,15 +50,9 @@ else:
         found_skills = []
 
         for skill in skills:
+
             if skill in text.lower():
                 found_skills.append(skill)
-
-        st.subheader("🛠️ Skills Detected")
-
-        if found_skills:
-            for skill in found_skills:
-                st.write("✅", skill.title())
-        else:
-            st.warning("No skills detected.")
-        else:
-           st.warning("Please upload your resume.")
+         st.subheader("Skills Detected")
+        for skill in found_skills:
+            st.write("✅", skill.title())
