@@ -21,4 +21,36 @@ if uploaded_file is not None:
 
 else:
     st.warning("Please upload your resume.")
+    import streamlit as st
+from pypdf import PdfReader
+from docx import Document
+
+st.title("AI Resume Screening System")
+
+uploaded_file = st.file_uploader(
+    "Upload Resume",
+    type=["pdf", "docx"]
+)
+
+if uploaded_file is not None:
+
+    text = ""
+
+    if uploaded_file.name.endswith(".pdf"):
+        reader = PdfReader(uploaded_file)
+
+        for page in reader.pages:
+            text += page.extract_text() or ""
+
+    elif uploaded_file.name.endswith(".docx"):
+        document = Document(uploaded_file)
+
+        for paragraph in document.paragraphs:
+            text += paragraph.text + "\n"
+
+    st.success("Resume uploaded successfully!")
+
+    st.subheader("Resume Content")
+
+    st.write(text)
     
