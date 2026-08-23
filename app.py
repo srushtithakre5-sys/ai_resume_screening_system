@@ -18,8 +18,8 @@ if uploaded_file is not None:
         st.warning("🟡 Average Resume")
     else:
         st.error("❌ Poor Resume")
-        else:
-    st.warning("Please upload your resume.")
+    else:
+        st.warning("Please upload your resume.")
 from flask import Flask, request, render_template_string
 import PyPDF2
 
